@@ -1,20 +1,108 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+
+  <div class="card" style=" margin-top: 20px;"  align="center">
+
+    <form #docs_form=ngForm (ngSubmit)="onsubmit()" enctype="multipart/form-data">
+
+      <div class="row form-group" >
+        <div class="col-sm-4" >
+          <label>Claim Number</label>
+          <input type="text" name="claimNo" value="" [(ngModel)]="form.claimNo" class="form-control" required #claim />
+
+        </div>
+        
+        
+
+
+        <div class="col-sm-4">
+          <label>Policy Number</label>
+          <input type="text" name="policyNo" value="" [(ngModel)]="form.policyNo" class="form-control" required #policy/>
+        </div>
+
+      </div>
+      
+      <div class="row form-group">
+         <div class="col-sm-4">
+          <label>Doc Type</label>
+          <input type="text" name="docType" value="" [(ngModel)]="form.docType" class="form-control" required #type/>
+        </div>
+
+         <div class="col-sm-4">
+          <label>Doc Name</label>
+          <input type="text" name="docName" value="" [(ngModel)]="form.docName" class="form-control" required #docName/>
+        </div>
+
+      
+      </div>
+
+       <div class="row form-group">
+         <div class="col-sm-4">
+          <label>Department</label>
+          <input type="text" name="dept" value="" [(ngModel)]="form.dept" class="form-control" required #department/>
+        </div>
+
+        <div class="col-sm-4">
+          <label>ID Number</label>
+          <input type="text" name="idNo" value="" [(ngModel)]="form.idNo" class="form-control" required #id_no/>
+        </div>
+      </div>
+
+      <div class="row form-group">
+         <div class="col-sm-4">
+          <label>Insured Name</label>
+          <input type="text" name="insuredName" value="" [(ngModel)]="form.insuredName" class="form-control" required #insured/>
+        </div>
+
+
+        <div class="col-sm-4">
+          <label>Doc Source</label>
+          <input type="text" name="docSource" value="" [(ngModel)]="form.docSource" class="form-control" required #source/>
+        </div>
+
+       
+        
+      </div>
+      
+      <div class="row">
+
+         <div class="col-sm-4">
+          <label>Document</label>
+          <input type="file" name="docName" id="doc_file" (change)="onFileChange($event)" required class="form-control" #fileInput />
+        </div>
+
+       <div class="col-sm-4">
+        <label> </label>
+      <input type="submit" name="save" [disabled]='!docs_form.valid' value="Save" class="btn btn-default form-control"/>
+      </div>
+
+       
+        
+      </div>
+      
+
+    </form>
+
+  </div>
+
+  <div class="card" style=" margin-top: 20px;"  align="center">
+
+    <table >
+    <th>Name</th>
+    <th>Claim_no</th>
+    <th>Source</th>
+    <th>View</th>
+    <tbody>
+      <tr *ngFor="let doc of docs">
+        <td >{{doc.fileName}}</td>
+        <td>{{doc.claimNo}}</td>
+        <td>{{doc.source}}</td>
+        <td><a href="{{doc.link}}">Preview</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  </div>
+  
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 

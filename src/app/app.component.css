@@ -1,0 +1,25 @@
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+
+form input.ng-invalid[type=text]  {
+   
+   border-left: 5px solid #FF2400;
+}
+
+form input.ng-valid[type=text]  {
+   
+   border-left: 5px solid green;
+}
+
